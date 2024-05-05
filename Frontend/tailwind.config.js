@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {},
   },
-  theme: {
-    extend: {},
+
+
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dracula"],
   },
-  plugins: [
-    require('daisyui'),
-  ],
 }
 
