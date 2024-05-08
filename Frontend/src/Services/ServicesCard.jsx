@@ -1,5 +1,4 @@
 const ServicesCard = ({ data }) => {
-  console.log(data);
   return (
     <div>
       <div className="card h-[100%] w-96 bg-base-100 shadow-xl">

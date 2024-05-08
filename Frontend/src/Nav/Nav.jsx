@@ -1,6 +1,8 @@
 import { useState } from "react";
 import logo from "../../public/logo.svg";
 import { NavLink } from "react-router-dom";
+import LoginNav from "./LoginNav";
+import LogoutNav from "./LogoutNav";
 
 const Nav = () => {
   const [themeState, setThemeState] = useState(
@@ -97,6 +99,8 @@ const Nav = () => {
           </label>
         </div>
         <button className="btn btn-outline btn-warning">APPOINMENT</button>
+        <LogoutNav />
+        <LoginNav></LoginNav>
       </div>
     </div>
   );
