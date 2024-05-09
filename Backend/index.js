@@ -45,6 +45,7 @@ async function run() {
 
         app.get("/service/:id", async (req, res) => {
             const id = req.params.id;
+            console.log(id);
             const query = { _id: new ObjectId(id) }
             const options = {
                 projection: {
@@ -56,7 +57,7 @@ async function run() {
 
             const result = await serviceCollection.findOne(query, options);
             res.send(result)
-
+            console.log(result);
         })
 
     } finally {

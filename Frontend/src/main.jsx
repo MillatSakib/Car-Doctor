@@ -11,6 +11,7 @@ import PrivateRoutes from "./PrivateRoutes/MainPrivateRoutes";
 import AuthPrivateRoute from "./PrivateRoutes/AuthPrivateRoute";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import CheckOut from "./CheckOut/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,17 @@ const router = createBrowserRouter([
           <AuthPrivateRoute>
             <Register></Register>
           </AuthPrivateRoute>
+        ),
+      },
+      {
+        path: "/service/:id",
+        loader: ({ params }) => {
+          return fetch(`https://cardoctor.vercel.app/service/${params.id}`);
+        },
+        element: (
+          <PrivateRoutes>
+            <CheckOut></CheckOut>
+          </PrivateRoutes>
         ),
       },
     ],

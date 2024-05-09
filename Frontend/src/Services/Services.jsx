@@ -1,6 +1,13 @@
-import fakeData from "../../fakeData.json";
+import { useEffect, useState } from "react";
 import ServicesCard from "./ServicesCard";
 const Services = () => {
+  const [fakeData, setFakeData] = useState([]);
+  useEffect(() => {
+    fetch("https://cardoctor.vercel.app/services")
+      .then((res) => res.json())
+      .then((data) => setFakeData(data));
+  }, []);
+
   return (
     <div>
       <h2>Service</h2>
