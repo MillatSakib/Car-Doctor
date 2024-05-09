@@ -12,6 +12,7 @@ import AuthPrivateRoute from "./PrivateRoutes/AuthPrivateRoute";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import CheckOut from "./CheckOut/CheckOut";
+import MyBookingList from "./MyBookingList/MyBookingList";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <CheckOut></CheckOut>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/bookingList",
+        element: (
+          <PrivateRoutes>
+            <MyBookingList></MyBookingList>
           </PrivateRoutes>
         ),
       },

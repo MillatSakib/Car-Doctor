@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../public/logo.svg";
 import { NavLink } from "react-router-dom";
 import LoginNav from "./LoginNav";
 import LogoutNav from "./LogoutNav";
+import { AuthContext } from "../AuthProvider";
 
 const Nav = () => {
+  const { user } = useContext(AuthContext);
+
   const [themeState, setThemeState] = useState(
     localStorage.getItem("darkyTheme") === "true"
   );
@@ -43,6 +46,9 @@ const Nav = () => {
             <li>
               <NavLink to="/about">About</NavLink>
             </li>
+            <li className={user?.email ? "" : "hidden"}>
+              <NavLink to="/bookingList">My List</NavLink>
+            </li>
           </ul>
         </div>
         <img src={logo} className="w-16 py-2"></img>
@@ -54,6 +60,9 @@ const Nav = () => {
           </li>
           <li>
             <NavLink to="/about">About</NavLink>
+          </li>
+          <li className={user?.email ? "" : "hidden"}>
+            <NavLink to="/bookingList">My List</NavLink>
           </li>
         </ul>
       </div>
