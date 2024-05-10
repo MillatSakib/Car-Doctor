@@ -1,0 +1,35 @@
+In server side
+
+1. install jsonwebtoken
+2. jwt.sign(payload, secret, {expiresIn:})
+3. token client
+
+
+
+
+How to store token in the client side
+
+1. memory --> ok types (like redux)
+
+2. local storage -> ok types(xss)
+
+3. cookies: http only
+
+
+
+1. set cookies with http only. for development secure : false
+
+2. cors
+
+3. client side axios setting
+in axios set withCredentials: true
+
+
+
+
+1. to send cookies from the client make sure you added withCredentials: true for the api call using axios.
+2. use cookie parser as middleware
+
+
+
+require('crypto').randomBytes(64).toString('hex') For making 64 Byte key.

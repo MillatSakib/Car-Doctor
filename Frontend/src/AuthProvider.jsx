@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 import { auth } from "./firebase.config";
 import { updateProfile } from "firebase/auth";
+import axios from "axios";
 
 import {
   GoogleAuthProvider,
@@ -74,6 +75,9 @@ const AuthProvider = ({ children }) => {
   const GoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        axios
+          .post("http://localhost:5000/jwt", result)
+          .then((data) => console.log(data.data));
         let temp = componentRender;
         setComponentRender(!temp);
         const loginUser = result.user;
