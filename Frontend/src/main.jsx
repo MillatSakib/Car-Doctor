@@ -13,7 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import CheckOut from "./CheckOut/CheckOut";
 import MyBookingList from "./MyBookingList/MyBookingList";
-
+// import { axios } from "axios";
+// axios.defaults.withCredentials = true;
 const router = createBrowserRouter([
   {
     path: "/",

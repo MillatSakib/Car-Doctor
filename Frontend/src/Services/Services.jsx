@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
 import ServicesCard from "./ServicesCard";
+import axios from "axios";
 const Services = () => {
   const [fakeData, setFakeData] = useState([]);
   useEffect(() => {
-    fetch("https://cardoctor.vercel.app/services")
-      .then((res) => res.json())
-      .then((data) => setFakeData(data));
+    axios
+      .post(
+        "http://localhost:5000/services",
+        {
+          email: "millatsakib01@gmail.com",
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then((data) => setFakeData(data.data));
   }, []);
 
   return (

@@ -76,7 +76,7 @@ const AuthProvider = ({ children }) => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         axios
-          .post("http://localhost:5000/jwt", result)
+          .post("http://localhost:5000/jwt", result, { withCredentials: true })
           .then((data) => console.log(data.data));
         let temp = componentRender;
         setComponentRender(!temp);
